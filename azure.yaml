@@ -1,0 +1,10 @@
+name: tdd-azd-azure-rbac-policy-cost-opt
+metadata:
+  template: tdd-azd-azure-rbac-policy-cost-opt@1.0.0
+infra:
+  provider: bicep
+  path: ./infra
+hooks:
+  postprovision:
+    shell: pwsh
+    run: ./scripts/post-provision.ps1
