@@ -74,7 +74,7 @@ param adminPassword string
 param currentUtcTime string = utcNow('yyyy-MM-ddT18:00:00Z')
 
 var projectName = 'rbac-policy-cost-opt'
-var resourceGroupName = 'rg-${projectName}-${environmentName}'
+var resourceGroupName = 'rg-${environmentName}'
 var vmName = 'vm-demo-${environmentName}'
 
 var tags = {
