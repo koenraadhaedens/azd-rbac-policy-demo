@@ -11,4 +11,4 @@ hooks:
       run: ./scripts/post-provision.ps1
     posix:
       shell: sh
-      run: ./scripts/post-provision.sh
+      run: chmod +x ./scripts/post-provision.sh && ./scripts/post-provision.sh
