@@ -24,9 +24,10 @@ var tags = {
   Environment: environmentName
   ManagedBy: 'Bicep'
   Project: projectName
-  SecurityControl: 'Ignore'
   CostCenter: 'Demo'
   Owner: 'AzureDemo'
+  SecurityControl: 'Ignore'
+  CostControl: 'Ignore'
 }
 
 resource rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
@@ -95,7 +96,7 @@ module rbac 'modules/rbac.bicep' = {
 }
 
 module policyDefinitions 'modules/policy-definitions.bicep' = {
-  name: 'policy-definitions'
+  name: 'policy-definitions-${location}'
 }
 
 module policyAssignments 'modules/policy-assignments.bicep' = {
