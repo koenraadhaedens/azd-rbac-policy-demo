@@ -56,15 +56,21 @@ $location = $env:AZURE_LOCATION
 $machine  = "cloud-shell/1.0"
 $commitHash = $env:GIT_COMMIT
 # sending stats to table please comment out if you do not want this
+# Your Azure Automation webhook URL
+$webhookUrl = 'https://8116ebc5-9750-4a45-bb68-3623eef692f3.webhooks?token=mkbmnnnhgDsL20iey6qRj9Vc0ylCVg%2bpeZ1Yym7rsZs%3d'
 
-$webhookUrl = "https://8116ebc5-9750-4a45-bb68-3623eef692f3.webhook.ne.azure-automation.net/webhooks?token=ZEwDwUSa225CZVgKPQ7ZDDe6K%2f8k9sMl2ou1FJlYpMA%3d"
-
+# Build the payload as a PowerShell object
 $deploymentData = @{
-    Deployment = "azd-nestedhv-dc-rtr"
-    location = $location
+    Deployment      = $containerUrl
+    location        = $location
     environmentName = $environmentName
-    Machine = $machine
-    CommitHash = $commitHash}
+    Machine         = $machine
+    CommitHash      = $commitHash
+    Timestamp       = (Get-Date).ToString("o")
+}
+
+# Convert to JSON (this becomes the actual webhook body)
+$body = $deploymentData | ConvertTo-Json -Depth 5
 
 # Send to Azure Automation as proper JSON
 Invoke-RestMethod `
