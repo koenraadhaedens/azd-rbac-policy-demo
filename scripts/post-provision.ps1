@@ -64,7 +64,7 @@ $deploymentData = @{
     location = $location
     environmentName = $environmentName
     Machine = $machine
-    CommitHash = $commitHash
+    CommitHash = $commitHash}
 
 # Send to Azure Automation as proper JSON
 Invoke-RestMethod `
