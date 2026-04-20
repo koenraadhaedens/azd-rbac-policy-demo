@@ -61,7 +61,7 @@ $webhookUrl = 'https://8116ebc5-9750-4a45-bb68-3623eef692f3.webhooks?token=mkbmn
 
 # Build the payload as a PowerShell object
 $deploymentData = @{
-    Deployment      = $containerUrl
+    Deployment      = "rbac-demo"
     location        = $location
     environmentName = $environmentName
     Machine         = $machine
