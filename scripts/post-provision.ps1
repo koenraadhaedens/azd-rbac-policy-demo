@@ -66,5 +66,11 @@ $deploymentData = @{
     Machine = $machine
     CommitHash = $commitHash
 
-Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $deploymentData -ContentType "application/json"
+# Send to Azure Automation as proper JSON
+Invoke-RestMethod `
+    -Uri $webhookUrl `
+    -Method Post `
+    -Body $body `
+    -ContentType "application/json"
+    
 Write-Output "Stats Tracked"
