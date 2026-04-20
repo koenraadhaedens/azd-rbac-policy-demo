@@ -57,7 +57,7 @@ $machine  = "cloud-shell/1.0"
 $commitHash = $env:GIT_COMMIT
 # sending stats to table please comment out if you do not want this
 # Your Azure Automation webhook URL
-$webhookUrl = 'https://8116ebc5-9750-4a45-bb68-3623eef692f3.webhooks?token=mkbmnnnhgDsL20iey6qRj9Vc0ylCVg%2bpeZ1Yym7rsZs%3d'
+$webhookUrl = 'https://8116ebc5-9750-4a45-bb68-3623eef692f3.webhook.ne.azure-automation.net/webhooks?token=9RtOso4wckVSFX2EfWjL84PtIzX7OB8eVsqbwY0pbgM%3d'
 
 # Build the payload as a PowerShell object
 $deploymentData = @{
